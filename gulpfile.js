@@ -1,26 +1,39 @@
 const gulp = require("gulp");
 const sass = require("gulp-sass");
 
-// Gulp Helpers
-const watchTask = (glob, taskName) => gulp.task(taskName + ":watch", [taskName], () => gulp.watch(glob, [taskName]));
-const watchableTask = (taskName, glob, callback, dependencies) => {
-    gulp.task(taskName, dependencies || [], () => callback(gulp.src(glob)));
-    watchTask(glob, taskName);
-};
+const typescript = require("gulp-typescript");
+const tsProject = typescript.createProject("tsconfig.json");
 
-watchableTask("sass", "./src/scss/style.scss", src => src
-    .pipe(sass())
-    .pipe(gulp.dest("dist"))
-);
+const rollup = require("gulp-better-rollup");
 
-watchableTask("static", "./static/**/*", src => src
-    .pipe(gulp.dest("dist"))
-);
+gulp.task("typescript", () => {
+    return gulp.src("./src/ts/**/*.ts")
+        .pipe(tsProject())
+        .pipe(gulp.dest("build/js"));
+});
 
-watchableTask("deploy", "./dist/**/*", src => src
-    .pipe(gulp.dest("../../wp-content/themes/base-theme"))
-);
+gulp.task("rollup", ["typescript"], () => {
+    return gulp.src("./build/js/main.js")
+        .pipe(rollup({
+            "format": "iife"
+        }))
+        .pipe(gulp.dest("dist/js"))
+});
 
-gulp.task("watch", ["sass:watch", "static:watch", "deploy:watch"]);
+gulp.task("sass", () => {
+    return gulp.src("./src/scss/style.scss")
+        .pipe(sass())
+        .pipe(gulp.dest("dist"))
+})
 
-gulp.task("default", ["watch"]);
+gulp.task("static", () => {
+    return gulp.src("./static/**/*")
+        .pipe(gulp.dest("dist"))
+});
+
+gulp.task("deploy", ["static", "sass", "rollup"], () => {
+    return gulp.src("./dist/**/*")
+        .pipe(gulp.dest("../../wp-content/themes/base-theme"))
+});
+
+gulp.task("default", ["deploy"]);

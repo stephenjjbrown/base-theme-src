@@ -1,0 +1,1 @@
+console.log("TypeScript source is compiling!");

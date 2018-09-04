@@ -10,6 +10,9 @@
   "license": "ISC",
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-sass": "^4.0.1"
+    "gulp-better-rollup": "^3.3.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-typescript": "^5.0.0-alpha.3",
+    "typescript": "^3.0.3"
   }
 }
