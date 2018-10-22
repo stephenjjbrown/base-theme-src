@@ -201,3 +201,15 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+
+
+
+
+
+require 'theme-update-check.php';
+$MyUpdateChecker = new ThemeUpdateChecker(
+    'base-theme',
+    'https://kernl.us/api/v1/theme-updates/5bce5098b984dd0a9e41beca/'
+);
+// $MyUpdateChecker->license = "aKernlLicenseKey";  <---- Optional!
