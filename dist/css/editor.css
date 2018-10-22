@@ -1,0 +1,16 @@
+.bt-image-section {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .bt-image-section .bt-image-section-column {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 50%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%; }
+    .bt-image-section .bt-image-section-column > img {
+      width: 100%;
+      height: auto; }

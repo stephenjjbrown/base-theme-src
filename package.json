@@ -4,15 +4,32 @@
   "description": "Baseline WordPress theme for creating custom themes",
   "main": "index.js",
   "scripts": {
+    "build": "./node_modules/.bin/gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Stephen Brown",
   "license": "ISC",
   "devDependencies": {
+    "@types/lodash": "^4.14.116",
+    "@types/react": "^16.4.13",
+    "@types/vue": "^2.0.0",
     "gulp": "^3.9.1",
+    "gulp-babel": "^8.0.0",
     "gulp-better-rollup": "^3.3.0",
     "gulp-sass": "^4.0.1",
     "gulp-typescript": "^5.0.0-alpha.3",
+    "gulp-util": "^3.0.8",
+    "rollup-plugin-commonjs": "^9.1.6",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-node-resolve-magic": "^0.2.11",
     "typescript": "^3.0.3"
+  },
+  "dependencies": {
+    "hyperhtml": "^2.13.1",
+    "hyperhtml-element": "^3.0.1",
+    "lodash": "^4.17.10",
+    "rxjs": "^6.3.2",
+    "vue": "^2.5.17",
+    "vue-class-component": "^6.2.0"
   }
 }

@@ -1,0 +1,12 @@
+.bt-image-section {
+    @include display-flex();
+
+    .bt-image-section-column {
+        @include flex(0, 0, 50%);
+
+        & > img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}

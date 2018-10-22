@@ -1,1 +1,2 @@
-console.log("TypeScript source is compiling!");
+import "./components/components";
+import "./elements/elements";

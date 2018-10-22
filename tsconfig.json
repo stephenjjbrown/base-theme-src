@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es5",
-    "sourceMap": true
-  },
-  "exclude": [
-    "node_modules"
-  ]
+    "module": "es6",
+    "moduleResolution": "node",
+    "target": "es6",
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "jsxFactory": "wp.element.createElement"
+  }
 }
