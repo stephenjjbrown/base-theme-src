@@ -104,7 +104,7 @@ gulp.task("deploy:watch", ["php:watch", "sass:watch", "static:watch", "rollup:wa
  */
 gulp.task("publish", () => {
     return gulp.src("./dist/**/*")
-        .pipe(gulp.dest("../"))
+        .pipe(gulp.dest("../base-theme-dist"))
 });
 
 /**
