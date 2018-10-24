@@ -159,15 +159,17 @@ function base_theme_blocks() {
 		['wp-edit-blocks']
 	);
 
-	register_block_type( 'base-theme/my-peaches', [
-		'editor_script' => $handle,
-		'editor_style' => $handle
-	]);
-
-	register_block_type('base-theme/image-section', [
-		'editor_script' => $handle,
-		'editor_style' => $handle
-	]);
+	if (function_exists('register_block_type')) {
+		register_block_type( 'base-theme/my-peaches', [
+			'editor_script' => $handle,
+			'editor_style' => $handle
+		]);
+	
+		register_block_type('base-theme/image-section', [
+			'editor_script' => $handle,
+			'editor_style' => $handle
+		]);
+	}
 }
 add_action( 'init', 'base_theme_blocks' );
 
@@ -210,6 +212,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 require 'theme-update-check.php';
 $MyUpdateChecker = new ThemeUpdateChecker(
     'base-theme',
-    'https://kernl.us/api/v1/theme-updates/5bce5098b984dd0a9e41beca/'
+    'https://kernl.us/api/v1/theme-updates/5bce7ed17d5b160b7750a72f/'
 );
 // $MyUpdateChecker->license = "aKernlLicenseKey";  <---- Optional!
