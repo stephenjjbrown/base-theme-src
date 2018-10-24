@@ -100,6 +100,14 @@ gulp.task("deploy:watch", ["php:watch", "sass:watch", "static:watch", "rollup:wa
 
 
 /**
+ * Publish to Github to release update to theme
+ */
+gulp.task("publish", () => {
+    return gulp.src("./dist/**/*")
+        .pipe(gulp.dest("../"))
+});
+
+/**
  * Default Task
  */
 gulp.task("default", ["deploy:watch"]);

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/.bin/gulp",
+    "publish": "./node_modules/.bin/gulp publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Stephen Brown",
