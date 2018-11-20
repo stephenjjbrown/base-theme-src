@@ -1,0 +1,91 @@
+import { bind, hyper, wire, define, Component, WiredTemplateFunction } from "hyperhtml";
+
+declare global {
+    interface HyperHTMLElement<T = {}> extends HTMLElement {
+        onabort(ev: UIEvent): void;
+        onactivate(this: HTMLElement, ev: Event): any;
+        onbeforeactivate(this: HTMLElement, ev: Event): any;
+        onbeforecopy(this: HTMLElement, ev: Event): any;
+        onbeforecut(this: HTMLElement, ev: Event): any;
+        onbeforedeactivate(this: HTMLElement, ev: Event): any;
+        onbeforepaste(this: HTMLElement, ev: Event): any;
+        onblur(ev: FocusEvent): void;
+        oncanplay(ev: Event): void;
+        oncanplaythrough(ev: Event): void;
+        onchange(ev: Event): void;
+        onclick(ev: MouseEvent): void;
+        oncontextmenu(ev: PointerEvent): void;
+        oncopy(ev: ClipboardEvent): void;
+        oncuechange(ev: Event): void;
+        oncut(ev: ClipboardEvent): void;
+        ondblclick(ev: MouseEvent): void;
+        ondeactivate(this: HTMLElement, ev: Event): any;
+        ondrag(ev: DragEvent): void;
+        ondragend(ev: DragEvent): void;
+        ondragenter(ev: DragEvent): void;
+        ondragleave(ev: DragEvent): void;
+        ondragover(ev: DragEvent): void;
+        ondragstart(ev: DragEvent): void;
+        ondrop(ev: DragEvent): void;
+        ondurationchange(ev: Event): void;
+        onemptied(ev: Event): void;
+        onended(this: HTMLElement, ev: Event): any;
+        onerror(ev: ErrorEvent): void;
+        onfocus(ev: FocusEvent): void;
+        oninput(ev: Event): void;
+        oninvalid(ev: Event): void;
+        onkeydown(ev: KeyboardEvent): void;
+        onkeypress(ev: KeyboardEvent): void;
+        onkeyup(ev: KeyboardEvent): void;
+        onload(ev: Event): void;
+        onloadeddata(ev: Event): void;
+        onloadedmetadata(ev: Event): void;
+        onloadstart(ev: Event): void;
+        onmousedown(ev: MouseEvent): void;
+        onmouseenter(ev: MouseEvent): void;
+        onmouseleave(ev: MouseEvent): void;
+        onmousemove(ev: MouseEvent): void;
+        onmouseout(ev: MouseEvent): void;
+        onmouseover(ev: MouseEvent): void;
+        onmouseup(ev: MouseEvent): void;
+        onmousewheel(ev: WheelEvent): void;
+        onmscontentzoom(this: HTMLElement, ev: Event): any;
+        onmsmanipulationstatechanged(ev: Event): void;
+        onpaste(ev: ClipboardEvent): void;
+        onpause(ev: Event): void;
+        onplay(ev: Event): void;
+        onplaying(ev: Event): void;
+        onprogress(ev: ProgressEvent): void;
+        onratechange(ev: Event): void;
+        onreset(ev: Event): void;
+        onscroll(ev: UIEvent): void;
+        onseeked(ev: Event): void;
+        onseeking(ev: Event): void;
+        onselect(ev: UIEvent): void;
+        onselectstart(ev: Event): void;
+        onstalled(ev: Event): void;
+        onsubmit(ev: Event): void;
+        onsuspend(ev: Event): void;
+        ontimeupdate(ev: Event): void;
+        onvolumechange(ev: Event): void;
+        onwaiting(ev: Event): void;
+    }
+
+    class HyperHTMLElement<T = {}> {
+    static readonly observedAttributes: string[];
+    constructor();
+    created(): void;
+    attributeChangedCallback(name: string, prev: string, curr: string): void;
+    html: WiredTemplateFunction;
+    state: T;
+    readonly defaultState: T;
+    render(): void;
+    setState(state: Partial<T> | ((this: this, state: T) => Partial<T>)): void;
+    static bind: typeof bind;
+    static Component: typeof Component;
+    static intent: typeof define;
+    static hyper: typeof hyper;
+    static wire: typeof wire;
+    static define(name: string, options?: ElementDefinitionOptions): void;
+    }
+}

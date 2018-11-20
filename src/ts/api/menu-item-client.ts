@@ -1,14 +1,21 @@
 import { sessionCache } from "../utilities/session-cache";
 
+export class MenuItem {
+    title: string;
+    url: string;
+}
+
 export class MenuItemClient {
 
-    async getAll() {
+    async getAll(): Promise<MenuItem[]> {
+        console.log('getall called')
         const cacheKey = 'base-theme-menu-items';
         let json = sessionCache.get(cacheKey);
         if (!json) {
-            json = await fetch("/test/wp-json/wp-menus/v1/menus/top-navigation").then(r => r.text());
-            console.log(json);
-            sessionCache.set(cacheKey, json);
+            json = await fetch(_wpSiteInfo.siteUrl + "/wp-json/wp-menus/v1/menus/top-navigation")
+                .then(r => r.text());
+            console.log('menu items', json);
+            //sessionCache.set(cacheKey, json);
         }
         return JSON.parse(json);
     }

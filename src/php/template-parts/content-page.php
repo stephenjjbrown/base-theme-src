@@ -9,14 +9,14 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?/* <header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<?php base_theme_post_thumbnail(); ?>
+	<?php base_theme_post_thumbnail(); ?> */?>
 
-	<div class="entry-content">
+	<div class="bt-page-content">
 		<?php
 		the_content();
 
@@ -25,15 +25,15 @@
 			'after'  => '</div>',
 		) );
 		?>
-	</div><!-- .entry-content -->
+	</div>
 
-	<?php if ( get_edit_post_link() ) : ?>
+	<?/*<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
 			<?php
 			edit_post_link(
 				sprintf(
 					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
+						// translators: %s: Name of current post. Only visible to screen readers
 						__( 'Edit <span class="screen-reader-text">%s</span>', 'base-theme' ),
 						array(
 							'span' => array(
@@ -48,5 +48,5 @@
 			);
 			?>
 		</footer><!-- .entry-footer -->
-	<?php endif; ?>
-</article><!-- #post-<?php the_ID(); ?> -->
+	<?php endif; ?>*/?>
+</div>

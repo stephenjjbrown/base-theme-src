@@ -1,7 +1,7 @@
-export interface MyPeachesBlockSettings {
-    peaches: number;
-}
+// export interface MyPeachesBlockSettings {
+//     peaches: number;
+// }
 
-export const defaultMyPeachesBlockSettings: MyPeachesBlockSettings = {
-    peaches: 32
-};
+// export const defaultMyPeachesBlockSettings: MyPeachesBlockSettings = {
+//     peaches: 32
+// };

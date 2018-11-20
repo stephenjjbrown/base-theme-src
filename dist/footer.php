@@ -14,6 +14,20 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
+		<?php
+			
+			$themeSettings = get_option('base-theme-settings');
+
+			$footerPageId = $themeSettings->footerPageId;
+			if ($footerPageId) {
+				echo get_post_field('post_content', $footerPageId);
+			} else {
+				echo 'No footer has been set up';
+			}
+		
+		?>
+
+
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'base-theme' ) ); ?>">
 				<?php
@@ -28,7 +42,9 @@
 				?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
-</div><!-- #page -->
+<!-- </div>#page -->
+</bt-page>
+</div> <!-- .bt-page-wrapper -->
 
 
 <?php

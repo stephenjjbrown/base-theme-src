@@ -6,6 +6,13 @@ export type WordPressComponent = typeof React.Component;
 export type WordPressRef<T> = React.RefObject<T>;
 
 export declare interface WordPressApi {
+    components: {
+        Panel: any,
+        PanelBody: any,
+        PanelRow: any,
+        Button: any,
+        TextControl: any
+    }
     editor: {
         InspectorControls: any,//TODO
         InnerBlocks: any,//TODO
@@ -24,6 +31,7 @@ export declare interface WordPressApi {
             icon: string,
             category: string,
             keywords?: string[],
+            supports?: any,
             attributes: any,//TODO
             getEditWrapperProps?: any,//TODO
             edit: (...args: any[]) => WordPressElement,//TODO

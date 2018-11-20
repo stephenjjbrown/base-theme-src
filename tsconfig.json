@@ -2,9 +2,14 @@
   "compilerOptions": {
     "module": "es6",
     "moduleResolution": "node",
-    "target": "es6",
+    "target": "esnext",
     "experimentalDecorators": true,
     "jsx": "react",
-    "jsxFactory": "wp.element.createElement"
-  }
+    "jsxFactory": "wp.element.createElement",
+    "declaration": true,
+    // "isolatedModules": true,
+  },
+  "include": [
+    "src/ts/**/*"
+  ]
 }

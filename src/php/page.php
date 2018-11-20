@@ -15,7 +15,8 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
+	<div class="bt-page-container">
+	<!-- <div id="primary" class="content-area"> -->
 		<main id="main" class="site-main">
 
 		<?php
@@ -33,7 +34,8 @@ get_header();
 		?>
 
 		</main><!-- #main -->
-	</div><!-- #primary -->
+	<!-- </div> -->
+	</div>
 
 <?php
 get_sidebar();

@@ -85,6 +85,86 @@ add_action( 'after_setup_theme', 'base_theme_setup' );
 
 
 
+
+
+
+
+
+
+
+
+
+/**
+ * 
+ */
+function baseThemeAdminOptionsPage() { ?>
+	<bt-theme-settings></bt-theme-settings>
+<?php }
+
+
+/**
+ * 
+ */
+function baseThemeMenuOptions() {
+	add_theme_page('Base Theme Settings', 'Base Theme Settings', 'edit_theme_options', 'base-theme-settings', 'baseThemeAdminOptionsPage');
+}
+add_action('admin_menu', 'baseThemeMenuOptions');
+
+
+/**
+ * 
+ */
+function baseThemeRegisterSettings() {
+	// update_option( 'base-theme-settings', ['thing' => '500']);
+	// register_setting( 'general', 'base-theme-settings', [
+	// 	'show_in_rest' => true,
+	// 	['thing' => 30]
+	// ]);
+}
+add_action('admin_init', 'baseThemeRegisterSettings');
+
+
+/**
+ * 
+ */
+function baseThemeSettingsPageScripts($hook) {
+	if ($hook !== 'appearance_page_base-theme-settings')
+		return;
+
+	?>
+		<script>
+			var wpApiSettings = <?php echo json_encode(
+				[
+					'restUrl' => esc_url_raw(rest_url()),
+					'nonce' => wp_create_nonce('wp_rest')
+				]);
+			?>
+		</script>
+	<?php
+
+	wp_enqueue_script('base-theme-settings-page', get_template_directory_uri() . '/js/theme-settings.js', [], null, true);
+}
+add_action( 'admin_enqueue_scripts', 'baseThemeSettingsPageScripts' );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
@@ -160,15 +240,30 @@ function base_theme_blocks() {
 	);
 
 	if (function_exists('register_block_type')) {
-		register_block_type( 'base-theme/my-peaches', [
+		register_block_type( 'base-theme/section', [
 			'editor_script' => $handle,
 			'editor_style' => $handle
 		]);
+
+		register_block_type( 'base-theme/group', [
+			'editor_script' => $handle,
+			'editor_style' => $handle
+		]);
+
+		register_block_type( 'base-theme/anchor-group', [
+			'editor_script' => $handle,
+			'editor_style' => $handle
+		]);
+
+		// register_block_type( 'base-theme/my-peaches', [
+		// 	'editor_script' => $handle,
+		// 	'editor_style' => $handle
+		// ]);
 	
-		register_block_type('base-theme/image-section', [
-			'editor_script' => $handle,
-			'editor_style' => $handle
-		]);
+		// register_block_type('base-theme/image-section', [
+		// 	'editor_script' => $handle,
+		// 	'editor_style' => $handle
+		// ]);
 	}
 }
 add_action( 'init', 'base_theme_blocks' );
@@ -203,6 +298,10 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Register custom API routes for Base Theme
+ */
+require get_template_directory() . '/api/register-routes.php';
 
 
 
