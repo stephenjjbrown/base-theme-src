@@ -3,7 +3,9 @@ import { MenuItem, MenuItemClient } from "../api/menu-item-client";
 import { page } from "../models/page";
 import { TrackedArray } from "dependency-tracked-subject";
 import { TrackedComputedSubject } from "dependency-tracked-subject";
- 
+import { WiredTemplateFunction } from "hyperhtml";
+
+
 function filterImageHtml(html: string) {
 
     return `
@@ -19,9 +21,43 @@ function filterImageHtml(html: string) {
 
 export class TopNavigationElement extends HyperHTMLElement {
 
-    items: TrackedArray<MenuItem> = new TrackedArray([]);
+    items: TrackedArray<MenuItem>;
+
+    renderedHtml: TrackedComputedSubject<WiredTemplateFunction>;
 
     created() {
+        this.items = new TrackedArray([]);
+
+        this.renderedHtml = new TrackedComputedSubject(() => {
+            //console.log(this, this.items, this.items.value, "renderhtmlcalled")
+            const result = this.html`
+                <a class="bt-top-navigation-logo" href="${_wpSiteInfo.homeUrl}">
+                    ${ _wpSiteInfo.customLogo ? {html: filterImageHtml(_wpSiteInfo.customLogo.imageHtml)} : _wpSiteInfo.siteDisplayName }
+                </a>
+    
+            
+    
+                ${ this.items.value.length > 0 ?
+                    TopNavigationElement.wire()`<nav class="bt-top-navigation-links">
+                        ${ this.items.value
+                            .map(item => `<a class="bt-top-navigation-link" href="${ item.url }">${ item.title }</a>`)
+                        }
+                    </nav>` :
+                    null
+                }
+                
+    
+                <button class="bt-top-navigation-toggle" onclick=${ this.toggleButtonClicked }><span class="bt-top-navigation-toggle-text">Toggle</span></button>
+            `;
+
+            if (!page.topNavigationRendered && this.items.value.length > 0) {
+                page.onTopNavigationRendered.forEach(cb => cb());
+                page.topNavigationRendered = true;
+            }
+
+            return result;
+        });
+
         const client = new MenuItemClient();
 
         client.getAll()
@@ -33,34 +69,30 @@ export class TopNavigationElement extends HyperHTMLElement {
 
         this.renderedHtml.subscribe(() => this.render());
         this.render();
+
+        const documentClickHandler = (e) => {
+            let node = e.target as Node;
+
+            while(node) {
+                console.log(node);
+                if (node["className"] &&
+                    (node["className"].match(/bt-top-navigation-link([^s]|$)/) != null ||
+                    node["className"].indexOf("bt-top-navigation-toggle") != -1)) {                    
+                    return;
+                }
+                node = node.parentNode;
+            }
+            page.revealNavigation.value = false;
+        }
+
+        document.addEventListener("click", documentClickHandler);
+        document.addEventListener("touchend", documentClickHandler);
+
     }
 
     toggleButtonClicked =() => {
         page.revealNavigation.value = !page.revealNavigation.value;
     }
-
-    renderedHtml = new TrackedComputedSubject(() => {
-        console.log("renderhtmlcalled")
-        return this.html`
-            <a class="bt-top-navigation-logo" href="${_wpSiteInfo.homeUrl}">
-                ${ _wpSiteInfo.customLogo ? {html: filterImageHtml(_wpSiteInfo.customLogo.imageHtml)} : _wpSiteInfo.siteDisplayName }
-            </a>
-
-        
-
-            ${ this.items.value.length > 0 ?
-                TopNavigationElement.wire()`<nav class="bt-top-navigation-links">
-                    ${ this.items.value
-                        .map(item => `<a class="bt-top-navigation-link" href="${ item.url }">${ item.title }</a>`)
-                    }
-                </nav>` :
-                null
-            }
-            
-
-            <button class="bt-top-navigation-toggle" onclick=${ this.toggleButtonClicked }><span class="bt-top-navigation-toggle-text">Toggle</span></button>
-        `;
-    });
 
     render() {
         return this.renderedHtml.value;

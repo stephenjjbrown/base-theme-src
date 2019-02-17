@@ -2,3 +2,26 @@
     // background-size: cover;
     // background-position: center center;
 }
+
+.bt-section.bt-section-has-background-element {
+    position: relative;
+
+    .bt-section-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        .bt-background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .bt-section-container {
+        position: relative;
+    }
+}

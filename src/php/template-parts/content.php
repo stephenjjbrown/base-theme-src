@@ -56,9 +56,11 @@
 				?>
 			</div><!-- .entry-content -->
 
-			<footer class="entry-footer">
-				<?php base_theme_entry_footer(); ?>
-			</footer><!-- .entry-footer -->
+			<!-- <footer class="entry-footer">
+				<?php 
+				// base_theme_entry_footer();
+				?>
+			</footer> -->
 		</div>
 	</div>
 </article><!-- #post-<?php the_ID(); ?> -->

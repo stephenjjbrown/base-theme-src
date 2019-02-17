@@ -20,7 +20,13 @@
 
 			$footerPageId = $themeSettings->footerPageId;
 			if ($footerPageId) {
-				echo get_post_field('post_content', $footerPageId);
+
+				$content_post = get_post($footerPageId);
+				$content = $content_post->post_content;
+				$content = apply_filters('the_content', $content);
+				$content = str_replace(']]>', ']]&gt;', $content);
+				echo $content;
+				//echo get_post_field('post_content', $footerPageId);
 			} else {
 				echo 'No footer has been set up';
 			}
@@ -28,7 +34,7 @@
 		?>
 
 
-		<div class="site-info">
+		<!--<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'base-theme' ) ); ?>">
 				<?php
 				/* translators: %s: CMS name, i.e. WordPress. */
@@ -40,11 +46,11 @@
 				/* translators: 1: Theme name, 2: Theme author. */
 				printf( esc_html__( 'Theme: %1$s by %2$s.', 'base-theme' ), 'base-theme', '<a href="http://underscores.me/">Me</a>' );
 				?>
-		</div><!-- .site-info -->
+		</div> .site-info -->
 	</footer><!-- #colophon -->
 <!-- </div>#page -->
 </bt-page>
-</div> <!-- .bt-page-wrapper -->
+</bt-page-wrapper> <!-- .bt-page-wrapper -->
 
 
 <?php

@@ -1,4 +1,4 @@
-(function() { 
+(function() {
     const { InspectorControls, InnerBlocks, MediaPlaceholder } = wp.editor;
     const { Fragment } = wp.element;
     const { Panel, PanelBody, PanelRow, Button, TextControl } = wp.components;

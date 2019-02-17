@@ -24,6 +24,17 @@
 // @import "mixins/mixins-master";
 @import "mixins/flexbox-mixins";
 
+
+.bt-reveal {
+	@if (not $is-editor) {
+		opacity: 0;
+	}
+}
+
+bt-page, bt-page-wrapper {
+	display: block;
+}
+
 // /*--------------------------------------------------------------
 // # Normalize
 // --------------------------------------------------------------*/

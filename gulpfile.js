@@ -11,7 +11,9 @@ const commonJs = require("rollup-plugin-commonjs");
 const babel = require("rollup-plugin-babel");
 const externalHelpers = require("@babel/plugin-external-helpers")
 
-const cache = require("gulp-cache")
+const cache = require("gulp-cache");
+
+const sftp = require("gulp-sftp");
 
 const { log } = require("gulp-util");
 
@@ -111,10 +113,17 @@ gulp.task("static:watch", ["static"], () => gulp.watch("./static/**/*", ["static
 /**
  * Deploy to WordPress
  */
-gulp.task("deploy", () => {
+gulp.task("deploy", ["rollup"], () => {
     return gulp.src("./dist/**/*")
-        .pipe(cache(gulp.dest("/Users/stephenbrown/Library/Group Containers/G69SCX94XU.duck/Library/Application Support/duck/Volumes/Willamette Valley Fiber Staging/wvalleyfiber.stagingsite.design/wp-content/themes/base-theme/")))
-        //.pipe(gulp.dest("/Users/stephenbrown/Library/Group Containers/G69SCX94XU.duck/Library/Application Support/duck/Volumes/Willamette Valley Fiber Staging/wvalleyfiber.stagingsite.design/wp-content/themes/base-theme/"))
+        .pipe(cache(sftp({
+            host: 'wvalleyfiber.stagingsite.design',
+            user: 'dh_85c5kg',
+            pass: 'QJ2PwpxV',
+            remotePath: '/home/dh_85c5kg/wvalleyfiber.stagingsite.design/wp-content/themes/base-theme/'
+        })))
+
+        //.pipe(cache(gulp.dest("/Users/stephenbrown/Library/Group Containers/G69SCX94XU.duck/Library/Application Support/duck/Volumes/Willamette Valley Fiber Staging/wvalleyfiber.stagingsite.design/wp-content/themes/base-theme/")))
+        //.pipe(gulp.dest("/Users/stephenbrown/Library/Group Containers/G69SCX94XU.duck/Library/Application Support/duck/Volumes/Willamette Valley Fiber Staging-1/wvalleyfiber.stagingsite.design/wp-content/themes/base-theme/"))
         //.pipe(gulp.dest("../../wp-content/themes/base-theme"))
 });
 gulp.task("deploy:watch", ["php:watch", "sass:watch", "static:watch", "rollup:watch"], () => gulp.watch("./dist/**/*", ["deploy"]));
@@ -130,8 +139,8 @@ gulp.task("publish", () => {
 /**
  * 
  */
-gulp.task("clear-cache", () => {
-
+gulp.task("clear", () => {
+    return cache.clearAll();
 })
 
 /**

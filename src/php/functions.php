@@ -226,11 +226,13 @@ add_action( 'wp_enqueue_scripts', 'base_theme_scripts' );
  */
 function base_theme_blocks() {
 	$handle = 'base-theme-blocks';
-
+	
 	wp_register_script(
 		$handle,
 		get_template_directory_uri() . '/js/editor.js',
-		['wp-blocks', 'wp-element']
+		['wp-blocks', 'wp-element'],
+		null,
+		true
 	);
 
 	wp_register_style(
@@ -302,6 +304,19 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Register custom API routes for Base Theme
  */
 require get_template_directory() . '/api/register-routes.php';
+
+
+
+
+
+
+function yearShortcode() {
+    return date("Y");
+}
+
+add_shortcode( 'bt-year', 'yearShortcode' );
+
+
 
 
 

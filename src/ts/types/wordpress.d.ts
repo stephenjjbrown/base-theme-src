@@ -11,7 +11,9 @@ export declare interface WordPressApi {
         PanelBody: any,
         PanelRow: any,
         Button: any,
-        TextControl: any
+        TextControl: any,
+        CheckboxControl: any,
+        ToggleControl: any
     }
     editor: {
         InspectorControls: any,//TODO

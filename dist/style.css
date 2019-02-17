@@ -41,9 +41,32 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
+.bt-reveal {
+  opacity: 0; }
+
+bt-page, bt-page-wrapper {
+  display: block; }
+
 /*--------------------------------------------------------------
 # Base Theme Styles
 --------------------------------------------------------------*/
+.bt-section.bt-section-has-background-element {
+  position: relative; }
+  .bt-section.bt-section-has-background-element .bt-section-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+    .bt-section.bt-section-has-background-element .bt-section-background .bt-background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; }
+  .bt-section.bt-section-has-background-element .bt-section-container {
+    position: relative; }
+
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/

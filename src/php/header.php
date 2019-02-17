@@ -14,10 +14,12 @@
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+	
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<!-- TODO: Only include icons needed -->
+	<script defer src="https://pro.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-I3Hhe9TkmlsxzooTtbRzdeLbmkFQE9DVzX/19uTZfHk1zn/uWUyk+a+GyrHyseSq" crossorigin="anonymous"></script>
 	<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous"> -->
 	
 	<!-- GSS engine -->
@@ -34,7 +36,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div class="bt-page-wrapper">
+<bt-page-wrapper>
 <bt-page>
 <!-- <div id="page" class="site"> -->
 	<!-- <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'base-theme' ); ?></a> -->

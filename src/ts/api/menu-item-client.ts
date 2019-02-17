@@ -10,12 +10,12 @@ export class MenuItemClient {
     async getAll(): Promise<MenuItem[]> {
         console.log('getall called')
         const cacheKey = 'base-theme-menu-items';
-        let json = sessionCache.get(cacheKey);
+        let json = null;//sessionCache.get(cacheKey);
         if (!json) {
             json = await fetch(_wpSiteInfo.siteUrl + "/wp-json/wp-menus/v1/menus/top-navigation")
                 .then(r => r.text());
             console.log('menu items', json);
-            //sessionCache.set(cacheKey, json);
+            sessionCache.set(cacheKey, json);
         }
         return JSON.parse(json);
     }
