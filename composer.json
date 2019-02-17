@@ -1,0 +1,10 @@
+{
+    "name": "pendulum/base-theme",
+    "authors": [
+        {
+            "name": "stephenjjbrown",
+            "email": "stephenjjbrown@me.com"
+        }
+    ],
+    "require": {}
+}

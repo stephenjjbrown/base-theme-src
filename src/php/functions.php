@@ -323,9 +323,9 @@ add_shortcode( 'bt-year', 'yearShortcode' );
 
 
 
-require 'theme-update-check.php';
-$MyUpdateChecker = new ThemeUpdateChecker(
-    'base-theme',
-    'https://kernl.us/api/v1/theme-updates/5bce7ed17d5b160b7750a72f/'
-);
+// require 'theme-update-check.php';
+// $MyUpdateChecker = new ThemeUpdateChecker(
+//     'base-theme',
+//     'https://kernl.us/api/v1/theme-updates/5bce7ed17d5b160b7750a72f/'
+// );
 // $MyUpdateChecker->license = "aKernlLicenseKey";  <---- Optional!
