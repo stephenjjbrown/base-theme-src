@@ -1,6 +1,6 @@
 {
   "name": "@pendulum/base-theme",
-  "version": "2.0.0",
+  "version": "2.1.0-dev.0",
   "description": "Baseline WordPress theme for creating custom themes",
   "main": "./dist/js/main.js",
   "types": "./dist/js/main.d.ts",
