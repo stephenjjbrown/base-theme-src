@@ -18,6 +18,30 @@
 // const { log } = require("gulp-util");
 
 
+const tools = require("@pendulum/gulp-tools");
+
+const dist = "./dist";
+const temp = "./temp";
+
+module.exports = tools.createGulpfile({
+    include: {
+        clean: [dist, temp],
+        ts: {
+            src: "./src/ts/**/*.{ts,tsx}",
+            dest: temp + "/js",
+            rollup: {
+                src: [temp + "/js/main.js", temp + "/js/editor.js", temp + "/js/theme-settings.js"],
+                dest: dist + "/js"
+            },
+            declarations: {
+                src: temp + "/js/**/*.d.ts",
+                dest: dist + "/js"
+            },
+            clean: temp
+        }
+    }
+})
+
 // /**
 //  * PHP
 //  */

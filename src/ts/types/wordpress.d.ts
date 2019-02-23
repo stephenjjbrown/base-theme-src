@@ -1,9 +1,9 @@
-import * as React from "react";
-import {ReactNode} from "react";
+// import * as React from "react";
+// import {ReactNode} from "react";
 
-export type WordPressElement = ReactNode; // TODO: WPElement Types
-export type WordPressComponent = typeof React.Component;
-export type WordPressRef<T> = React.RefObject<T>;
+export type WordPressElement = any;//ReactNode; // TODO: WPElement Types
+export type WordPressComponent = any;//typeof React.Component;
+export type WordPressRef<T> = any;//React.RefObject<T>;
 
 export declare interface WordPressApi {
     components: {
@@ -23,7 +23,7 @@ export declare interface WordPressApi {
     element: {
         Fragment: any; //TODO
         Component: WordPressComponent, // TODO: Component types
-        createElement: typeof React.createElement;
+        createElement: any;// typeof React.createElement;
         createRef: <T>() => WordPressRef<T>;
         render: any;//TODO
     },

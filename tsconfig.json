@@ -7,9 +7,6 @@
     "jsx": "react",
     "jsxFactory": "wp.element.createElement",
     "declaration": true,
-    // "isolatedModules": true,
-  },
-  "include": [
-    "src/ts/**/*"
-  ]
+    "isolatedModules": true
+  }
 }
