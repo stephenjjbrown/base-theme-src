@@ -1,11 +1,10 @@
 {
-  "name": "base-theme",
-  "version": "1.0.0",
+  "name": "@pendulum/base-theme",
+  "version": "2.0.0-dev.0",
   "description": "Baseline WordPress theme for creating custom themes",
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/.bin/gulp",
-    "publish": "./node_modules/.bin/gulp publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Stephen Brown",
