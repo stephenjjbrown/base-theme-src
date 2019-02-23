@@ -1,9 +1,9 @@
 {
   "name": "@pendulum/base-theme",
-  "version": "2.0.0-dev.1",
+  "version": "2.0.0",
   "description": "Baseline WordPress theme for creating custom themes",
-  "main": "dist/js/main.js",
-  "types": "dist/types/main.d.ts",
+  "main": "./dist/js/main.js",
+  "types": "./dist/js/main.d.ts",
   "scripts": {
     "build": "./node_modules/.bin/gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
