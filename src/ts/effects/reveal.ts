@@ -23,7 +23,7 @@ export function initializeRevealEffect(element: HTMLElement) {
     function reveal() {
         setTimeout(() => {
             const list = (element.className || "").split(" ");
-            list.splice(list.indexOf("bt-reveal"), 1);
+            list.splice(list.indexOf("base-reveal"), 1);
             element.className = list.join(" ");
         }, randomInt(0, 150));
         

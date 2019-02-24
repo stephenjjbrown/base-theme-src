@@ -125,7 +125,7 @@
 	  return store[key] || (store[key] = value !== undefined ? value : {});
 	})('versions', []).push({
 	  version: _core.version,
-	  mode: _library ? 'pure' : 'global',
+	  mode: 'global',
 	  copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
 	});
 	});
@@ -3592,9 +3592,9 @@
 	    return capability.promise;
 	  }
 	});
-	_export(_export.S + _export.F * (!USE_NATIVE$1), PROMISE, {
+	_export(_export.S + _export.F * (_library || !USE_NATIVE$1), PROMISE, {
 	  resolve: function resolve(x) {
-	    return _promiseResolve(this, x);
+	    return _promiseResolve(_library && this === Wrapper ? $Promise : this, x);
 	  }
 	});
 	_export(_export.S + _export.F * !(USE_NATIVE$1 && _iterDetect(function (iter) {
@@ -16185,7 +16185,7 @@
 	var page = new Page();
 
 	function _templateObject2() {
-	  var data = taggedTemplateLiteralLoose(["<nav class=\"bt-top-navigation-links\">\n                        ", "\n                    </nav>"]);
+	  var data = taggedTemplateLiteralLoose(["<nav class=\"base-top-navigation-links\">\n                        ", "\n                    </nav>"]);
 
 	  _templateObject2 = function _templateObject2() {
 	    return data;
@@ -16195,7 +16195,7 @@
 	}
 
 	function _templateObject() {
-	  var data = taggedTemplateLiteralLoose(["\n                <a class=\"bt-top-navigation-logo\" href=\"", "\">\n                    ", "\n                </a>\n    \n            \n    \n                ", "\n                \n    \n                <button class=\"bt-top-navigation-toggle\" onclick=", "><span class=\"bt-top-navigation-toggle-text\">Toggle</span></button>\n            "]);
+	  var data = taggedTemplateLiteralLoose(["\n                <a class=\"base-top-navigation-logo\" href=\"", "\">\n                    ", "\n                </a>\n    \n            \n    \n                ", "\n                \n    \n                <button class=\"base-top-navigation-toggle\" onclick=", "><span class=\"base-top-navigation-toggle-text\">Toggle</span></button>\n            "]);
 
 	  _templateObject = function _templateObject() {
 	    return data;
@@ -16233,7 +16233,7 @@
 	      var result = _this2.html(_templateObject(), _wpSiteInfo.homeUrl, _wpSiteInfo.customLogo ? {
 	        html: filterImageHtml(_wpSiteInfo.customLogo.imageHtml)
 	      } : _wpSiteInfo.siteDisplayName, _this2.items.value.length > 0 ? TopNavigationElement.wire()(_templateObject2(), _this2.items.value.map(function (item) {
-	        return "<a class=\"bt-top-navigation-link\" href=\"" + item.url + "\">" + item.title + "</a>";
+	        return "<a class=\"base-top-navigation-link\" href=\"" + item.url + "\">" + item.title + "</a>";
 	      })) : null, _this2.toggleButtonClicked);
 
 	      if (!page.topNavigationRendered && _this2.items.value.length > 0) {
@@ -16263,7 +16263,7 @@
 	      while (node) {
 	        console.log(node);
 
-	        if (node["className"] && (node["className"].match(/bt-top-navigation-link([^s]|$)/) != null || node["className"].indexOf("bt-top-navigation-toggle") != -1)) {
+	        if (node["className"] && (node["className"].match(/base-top-navigation-link([^s]|$)/) != null || node["className"].indexOf("base-top-navigation-toggle") != -1)) {
 	          return;
 	        }
 
@@ -16283,7 +16283,7 @@
 
 	  return TopNavigationElement;
 	}(HyperHTMLElement);
-	TopNavigationElement.define("bt-top-navigation");
+	TopNavigationElement.define("base-top-navigation");
 
 	var PageElement = function (_HyperHTMLElement) {
 	  inheritsLoose(PageElement, _HyperHTMLElement);
@@ -16298,7 +16298,7 @@
 	    var _this = this;
 
 	    var updateRevealNavigationCss = function updateRevealNavigationCss(value) {
-	      value ? _this.classList.add("bt-page-reveal-navigation") : _this.classList.remove("bt-page-reveal-navigation");
+	      value ? _this.classList.add("base-page-reveal-navigation") : _this.classList.remove("base-page-reveal-navigation");
 	    };
 
 	    page.revealNavigation.subscribe(updateRevealNavigationCss);
@@ -16311,7 +16311,7 @@
 
 	  return PageElement;
 	}(HyperHTMLElement);
-	PageElement.define("bt-page");
+	PageElement.define("base-page");
 
 	var PageWrapperElement = function (_HyperHTMLElement) {
 	  inheritsLoose(PageWrapperElement, _HyperHTMLElement);
@@ -16330,7 +16330,7 @@
 
 	  return PageWrapperElement;
 	}(HyperHTMLElement);
-	PageWrapperElement.define("bt-page-wrapper");
+	PageWrapperElement.define("base-page-wrapper");
 
 	var AnimationLoop = function () {
 	  function AnimationLoop() {
@@ -16511,7 +16511,7 @@
 	  function reveal() {
 	    setTimeout(function () {
 	      var list = (element.className || "").split(" ");
-	      list.splice(list.indexOf("bt-reveal"), 1);
+	      list.splice(list.indexOf("base-reveal"), 1);
 	      element.className = list.join(" ");
 	    }, randomInt(0, 150));
 	    animationLoop.removeReadEventHandler(id);
@@ -16581,35 +16581,35 @@
 	}
 
 	document.addEventListener("DOMContentLoaded", function () {
-	  var revealElements = document.querySelectorAll('.bt-reveal');
+	  var revealElements = document.querySelectorAll('.base-reveal');
 
 	  for (var i = 0; i < revealElements.length; i++) {
 	    var el = revealElements[i];
 	    initializeRevealEffect(el);
 	  }
 
-	  var fillHeightElements = document.querySelectorAll('.bt-fill-remaining-height');
+	  var fillHeightElements = document.querySelectorAll('.base-fill-remaining-height');
 
 	  for (var _i = 0; _i < fillHeightElements.length; _i++) {
 	    var _el = fillHeightElements[_i];
 	    initializeFillHeight(_el);
 	  }
 
-	  var backgroundCoverElements = document.querySelectorAll('.bt-background-cover');
+	  var backgroundCoverElements = document.querySelectorAll('.base-background-cover');
 
 	  for (var _i2 = 0; _i2 < backgroundCoverElements.length; _i2++) {
 	    var _el2 = backgroundCoverElements[_i2];
 	    initializeBackgroundCover(_el2);
 	  }
 
-	  var parallaxElements = document.querySelectorAll('.bt-parallax');
+	  var parallaxElements = document.querySelectorAll('.base-parallax');
 
 	  var _loop = function _loop(_i3) {
 	    var el = parallaxElements[_i3];
 	    var classArray = (el.className || "").split(" ");
 	    classArray.forEach(function (cssClass) {
-	      if (cssClass.match(/bt-parallax-/)) {
-	        var matches = /bt-parallax-([^-]*?)-([-0-9]*)/.exec(cssClass);
+	      if (cssClass.match(/base-parallax-/)) {
+	        var matches = /base-parallax-([^-]*?)-([-0-9]*)/.exec(cssClass);
 	        var origin = matches[1];
 	        var value = parseInt(matches[2]) / 100;
 	        initializeParallax(el, origin, value);
@@ -16622,7 +16622,7 @@
 	  }
 
 	  var updateDisableScrollCss = function updateDisableScrollCss(value) {
-	    value ? document.body.classList.add("bt-disable-scroll") : document.body.classList.remove("bt-disable-scroll");
+	    value ? document.body.classList.add("base-disable-scroll") : document.body.classList.remove("base-disable-scroll");
 	  };
 
 	  page.disableScroll.subscribe(updateDisableScrollCss);

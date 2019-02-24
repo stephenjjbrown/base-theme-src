@@ -1,10 +1,10 @@
-.bt-reveal {
+.base-reveal {
 	@if (not $is-editor) {
 		opacity: 0;
 	}
 }
 
-bt-page, bt-page-wrapper {
+base-page, base-page-wrapper {
 	display: block;
 }
 

@@ -1,7 +1,7 @@
-.bt-image-section {
+.base-image-section {
     @include display-flex();
 
-    .bt-image-section-column {
+    .base-image-section-column {
         @include flex(0, 0, 50%);
 
         & > img {

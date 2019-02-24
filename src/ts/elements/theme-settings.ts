@@ -22,7 +22,7 @@ export class ThemeSettingsElement extends HyperHTMLElement {
         
 
         (() => {
-            fetch(wpApiSettings.restUrl + "bt-api/v1/public-settings", {
+            fetch(wpApiSettings.restUrl + "base-api/v1/public-settings", {
                 // credentials: 'include',
                 // headers: new Headers({
                 //     'X-WP-Nonce': wpApiSettings.nonce
@@ -46,7 +46,7 @@ export class ThemeSettingsElement extends HyperHTMLElement {
 
         
         
-        fetch(wpApiSettings.restUrl + "bt-api/v1/public-settings", {
+        fetch(wpApiSettings.restUrl + "base-api/v1/public-settings", {
             method: "POST",
             body: JSON.stringify(this.settings.value),
             credentials: 'include',
@@ -88,4 +88,4 @@ export class ThemeSettingsElement extends HyperHTMLElement {
     }
 }
 
-ThemeSettingsElement.define("bt-theme-settings");
+ThemeSettingsElement.define("base-theme-settings");

@@ -55,14 +55,14 @@
         if (!props.attributes.backgroundIsElement && props.attributes.backgroundUrl)
             sectionStyle.backgroundImage = "url('" + props.attributes.backgroundUrl + "')";
         // Class
-        let classArray = ['bt-section'];
+        let classArray = ['base-section'];
         if (props.attributes.backgroundIsElement)
-            classArray.push("bt-section-has-background-element");
+            classArray.push("base-section-has-background-element");
         if (props.attributes.additionalClasses)
             classArray = classArray.concat(props.attributes.additionalClasses.split(" "));
         const className = classArray.join(" ");
         // Background Element Classes
-        let backgroundElementClasses = ['bt-section-background'];
+        let backgroundElementClasses = ['base-section-background'];
         if (props.attributes.backgroundElementClasses)
             backgroundElementClasses = backgroundElementClasses.concat(props.attributes.backgroundElementClasses.split(" "));
         const backgroundClassName = backgroundElementClasses.join(" ");
@@ -71,8 +71,8 @@
             props.attributes.backgroundIsElement ?
                 wp.element.createElement("div", { className: backgroundClassName }, props.attributes.backgroundIsVideo ?
                     null :
-                    wp.element.createElement("div", { className: "bt-background-image", style: { backgroundImage: "url('" + props.attributes.backgroundUrl + "')" } })) : null,
-            wp.element.createElement("div", { className: "bt-section-container" }, innerBlocks()));
+                    wp.element.createElement("div", { className: "base-background-image", style: { backgroundImage: "url('" + props.attributes.backgroundUrl + "')" } })) : null,
+            wp.element.createElement("div", { className: "base-section-container" }, innerBlocks()));
     };
     const settings = wp.blocks.registerBlockType('base-theme/section', {
         title: 'Section',
@@ -156,14 +156,14 @@
                     if (!props.attributes.backgroundIsElement && props.attributes.backgroundUrl)
                         sectionStyle.backgroundImage = "url('" + props.attributes.backgroundUrl + "')";
                     // Class
-                    let classArray = ['bt-section'];
+                    let classArray = ['base-section'];
                     if (props.attributes.backgroundIsElement)
-                        classArray.push("bt-section-has-background-element");
+                        classArray.push("base-section-has-background-element");
                     if (props.attributes.additionalClasses)
                         classArray = classArray.concat(props.attributes.additionalClasses.split(" "));
                     const className = classArray.join(" ");
                     // Background Element Classes
-                    let backgroundElementClasses = ['bt-section-background'];
+                    let backgroundElementClasses = ['base-section-background'];
                     if (props.attributes.backgroundElementClasses)
                         backgroundElementClasses = backgroundElementClasses.concat(props.attributes.backgroundElementClasses.split(" "));
                     const backgroundClassName = backgroundElementClasses.join(" ");
@@ -172,9 +172,9 @@
                         props.attributes.backgroundIsElement ?
                             wp.element.createElement("div", { className: backgroundClassName }, props.attributes.backgroundIsVideo ?
                                 null :
-                                wp.element.createElement("div", { className: "bt-background-image-wrapper" },
+                                wp.element.createElement("div", { className: "base-background-image-wrapper" },
                                     wp.element.createElement("img", { src: props.attributes.backgroundUrl, alt: "Background image", "aria-hidden": "true" }))) : null,
-                        wp.element.createElement("div", { className: "bt-section-container" }, innerBlocks()));
+                        wp.element.createElement("div", { className: "base-section-container" }, innerBlocks()));
                 }
             }
         ]

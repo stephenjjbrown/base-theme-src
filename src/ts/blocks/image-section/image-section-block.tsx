@@ -44,8 +44,8 @@
 //         }
 
 //         return <Fragment>
-//             <div className="bt-image-section">
-//                 <div className="bt-image-section-column">
+//             <div className="base-image-section">
+//                 <div className="base-image-section-column">
 //                     {props.attributes.imageUrl ?
 //                         <img src={props.attributes.imageUrl}/> :
 //                         <MediaPlaceholder
@@ -63,7 +63,7 @@
 //                         />
 //                     }
 //                 </div>
-//                 <div className="bt-image-section-column">
+//                 <div className="base-image-section-column">
 //                     <InnerBlocks
 //                         template={ [['core/column']] }
 //                         templateLock="all"/>
@@ -77,11 +77,11 @@
 
 //     save: function(props) {
 //         return <Fragment>
-//             <div className="bt-image-section">
-//                 <div className="bt-image-section-column">
+//             <div className="base-image-section">
+//                 <div className="base-image-section-column">
 //                     <img src={props.attributes.imageUrl}/>
 //                 </div>
-//                 <div className="bt-image-section-column">
+//                 <div className="base-image-section-column">
 //                     <InnerBlocks.Content />
 //                 </div>
 //             </div>

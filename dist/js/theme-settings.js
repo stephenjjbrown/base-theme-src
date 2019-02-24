@@ -9240,7 +9240,7 @@
 
       _this.saveClicked = function (event) {
         _this.saveInProgress.value = true;
-        fetch(wpApiSettings.restUrl + "bt-api/v1/public-settings", {
+        fetch(wpApiSettings.restUrl + "base-api/v1/public-settings", {
           method: "POST",
           body: JSON.stringify(_this.settings.value),
           credentials: 'include',
@@ -9269,7 +9269,7 @@
       });
 
       (function () {
-        fetch(wpApiSettings.restUrl + "bt-api/v1/public-settings", {}).then(function (r) {
+        fetch(wpApiSettings.restUrl + "base-api/v1/public-settings", {}).then(function (r) {
           return r.json();
         }).then(function (s) {
           return _this2.settings.value = s;
@@ -9286,6 +9286,6 @@
 
     return ThemeSettingsElement;
   }(HyperHTMLElement);
-  ThemeSettingsElement.define("bt-theme-settings");
+  ThemeSettingsElement.define("base-theme-settings");
 
 }());

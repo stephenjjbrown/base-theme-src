@@ -1,19 +1,19 @@
-.bt-section {
+.base-section {
     // background-size: cover;
     // background-position: center center;
 }
 
-.bt-section.bt-section-has-background-element {
+.base-section.base-section-has-background-element {
     position: relative;
 
-    .bt-section-background {
+    .base-section-background {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
 
-        .bt-background-image {
+        .base-background-image {
             position: absolute;
             top: 0;
             left: 0;
@@ -21,7 +21,7 @@
             height: 100%;
         }
     }
-    .bt-section-container {
+    .base-section-container {
         position: relative;
     }
 }

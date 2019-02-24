@@ -124,15 +124,15 @@
             sectionStyle.backgroundImage = "url('" + props.attributes.backgroundUrl + "')";
 
         // Class
-        let classArray = ['bt-section'];
+        let classArray = ['base-section'];
         if (props.attributes.backgroundIsElement)
-            classArray.push("bt-section-has-background-element");
+            classArray.push("base-section-has-background-element");
         if (props.attributes.additionalClasses)
             classArray = classArray.concat(props.attributes.additionalClasses.split(" "));
         const className = classArray.join(" ");
 
         // Background Element Classes
-        let backgroundElementClasses = ['bt-section-background'];
+        let backgroundElementClasses = ['base-section-background'];
         if (props.attributes.backgroundElementClasses)
             backgroundElementClasses = backgroundElementClasses.concat(props.attributes.backgroundElementClasses.split(" "));
         const backgroundClassName = backgroundElementClasses.join(" ");
@@ -143,11 +143,11 @@
                 <div className={ backgroundClassName }>
                     { props.attributes.backgroundIsVideo ?
                         null :
-                        <div className="bt-background-image" style={{backgroundImage: "url('" + props.attributes.backgroundUrl + "')"}}></div>
+                        <div className="base-background-image" style={{backgroundImage: "url('" + props.attributes.backgroundUrl + "')"}}></div>
                     }
                 </div> : null    
             }
-            <div className="bt-section-container">
+            <div className="base-section-container">
                 { innerBlocks() }
             </div>
         </div>
@@ -231,6 +231,72 @@
                         type: 'string'
                     }
                 },
+        
+                supports: {
+                    customClassName: false,
+                    className: false
+                },
+                
+                save: function(props) {
+                    const render = (props, innerBlocks) => {
+                        const sectionStyle: any = {};
+                
+                        // Style
+                        if (!props.attributes.backgroundIsElement && props.attributes.backgroundUrl)
+                            sectionStyle.backgroundImage = "url('" + props.attributes.backgroundUrl + "')";
+                
+                        // Class
+                        let classArray = ['bt-section'];
+                        if (props.attributes.backgroundIsElement)
+                            classArray.push("bt-section-has-background-element");
+                        if (props.attributes.additionalClasses)
+                            classArray = classArray.concat(props.attributes.additionalClasses.split(" "));
+                        const className = classArray.join(" ");
+                
+                        // Background Element Classes
+                        let backgroundElementClasses = ['bt-section-background'];
+                        if (props.attributes.backgroundElementClasses)
+                            backgroundElementClasses = backgroundElementClasses.concat(props.attributes.backgroundElementClasses.split(" "));
+                        const backgroundClassName = backgroundElementClasses.join(" ");
+                
+                        // Render
+                        return <div className={className} style={sectionStyle}>
+                            { props.attributes.backgroundIsElement ?
+                                <div className={ backgroundClassName }>
+                                    { props.attributes.backgroundIsVideo ?
+                                        null :
+                                        <div className="bt-background-image" style={{backgroundImage: "url('" + props.attributes.backgroundUrl + "')"}}></div>
+                                    }
+                                </div> : null    
+                            }
+                            <div className="bt-section-container">
+                                { innerBlocks() }
+                            </div>
+                        </div>
+                    }
+                    return render(props, () => <InnerBlocks.Content />)
+                }
+            },
+            {
+                attributes: {
+                    backgroundIsElement: {
+                        type: 'boolean',
+                        defaultValue: false
+                    },
+                    backgroundElementClasses: {
+                        type: 'string'
+                    },
+                    backgroundIsVideo: {
+                        type: 'boolean',
+                        defaultValue: false
+                    },
+                    backgroundUrl: {
+                        type: 'string'
+                    },
+                    additionalClasses: {
+                        type: 'string'
+                    }
+                },
 
                 supports: {
                     customClassName: false,
@@ -259,15 +325,15 @@
                         sectionStyle.backgroundImage = "url('" + props.attributes.backgroundUrl + "')";
             
                     // Class
-                    let classArray = ['bt-section'];
+                    let classArray = ['base-section'];
                     if (props.attributes.backgroundIsElement)
-                        classArray.push("bt-section-has-background-element");
+                        classArray.push("base-section-has-background-element");
                     if (props.attributes.additionalClasses)
                         classArray = classArray.concat(props.attributes.additionalClasses.split(" "));
                     const className = classArray.join(" ");
             
                     // Background Element Classes
-                    let backgroundElementClasses = ['bt-section-background'];
+                    let backgroundElementClasses = ['base-section-background'];
                     if (props.attributes.backgroundElementClasses)
                         backgroundElementClasses = backgroundElementClasses.concat(props.attributes.backgroundElementClasses.split(" "));
                     const backgroundClassName = backgroundElementClasses.join(" ");
@@ -278,13 +344,13 @@
                             <div className={ backgroundClassName }>
                                 { props.attributes.backgroundIsVideo ?
                                     null :
-                                    <div className="bt-background-image-wrapper">
+                                    <div className="base-background-image-wrapper">
                                         <img src={ props.attributes.backgroundUrl } alt="Background image" aria-hidden="true"/>
                                     </div>
                                 }
                             </div> : null    
                         }
-                        <div className="bt-section-container">
+                        <div className="base-section-container">
                             { innerBlocks() }
                         </div>
                     </div>

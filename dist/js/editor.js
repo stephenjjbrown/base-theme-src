@@ -9932,7 +9932,7 @@
   var page = new Page();
 
   function _templateObject2() {
-    var data = taggedTemplateLiteralLoose(["<nav class=\"bt-top-navigation-links\">\n                        ", "\n                    </nav>"]);
+    var data = taggedTemplateLiteralLoose(["<nav class=\"base-top-navigation-links\">\n                        ", "\n                    </nav>"]);
 
     _templateObject2 = function _templateObject2() {
       return data;
@@ -9942,7 +9942,7 @@
   }
 
   function _templateObject() {
-    var data = taggedTemplateLiteralLoose(["\n                <a class=\"bt-top-navigation-logo\" href=\"", "\">\n                    ", "\n                </a>\n    \n            \n    \n                ", "\n                \n    \n                <button class=\"bt-top-navigation-toggle\" onclick=", "><span class=\"bt-top-navigation-toggle-text\">Toggle</span></button>\n            "]);
+    var data = taggedTemplateLiteralLoose(["\n                <a class=\"base-top-navigation-logo\" href=\"", "\">\n                    ", "\n                </a>\n    \n            \n    \n                ", "\n                \n    \n                <button class=\"base-top-navigation-toggle\" onclick=", "><span class=\"base-top-navigation-toggle-text\">Toggle</span></button>\n            "]);
 
     _templateObject = function _templateObject() {
       return data;
@@ -9980,7 +9980,7 @@
         var result = _this2.html(_templateObject(), _wpSiteInfo.homeUrl, _wpSiteInfo.customLogo ? {
           html: filterImageHtml(_wpSiteInfo.customLogo.imageHtml)
         } : _wpSiteInfo.siteDisplayName, _this2.items.value.length > 0 ? TopNavigationElement.wire()(_templateObject2(), _this2.items.value.map(function (item) {
-          return "<a class=\"bt-top-navigation-link\" href=\"" + item.url + "\">" + item.title + "</a>";
+          return "<a class=\"base-top-navigation-link\" href=\"" + item.url + "\">" + item.title + "</a>";
         })) : null, _this2.toggleButtonClicked);
 
         if (!page.topNavigationRendered && _this2.items.value.length > 0) {
@@ -10010,7 +10010,7 @@
         while (node) {
           console.log(node);
 
-          if (node["className"] && (node["className"].match(/bt-top-navigation-link([^s]|$)/) != null || node["className"].indexOf("bt-top-navigation-toggle") != -1)) {
+          if (node["className"] && (node["className"].match(/base-top-navigation-link([^s]|$)/) != null || node["className"].indexOf("base-top-navigation-toggle") != -1)) {
             return;
           }
 
@@ -10030,7 +10030,7 @@
 
     return TopNavigationElement;
   }(HyperHTMLElement);
-  TopNavigationElement.define("bt-top-navigation");
+  TopNavigationElement.define("base-top-navigation");
 
   var PageElement = function (_HyperHTMLElement) {
     inheritsLoose(PageElement, _HyperHTMLElement);
@@ -10045,7 +10045,7 @@
       var _this = this;
 
       var updateRevealNavigationCss = function updateRevealNavigationCss(value) {
-        value ? _this.classList.add("bt-page-reveal-navigation") : _this.classList.remove("bt-page-reveal-navigation");
+        value ? _this.classList.add("base-page-reveal-navigation") : _this.classList.remove("base-page-reveal-navigation");
       };
 
       page.revealNavigation.subscribe(updateRevealNavigationCss);
@@ -10058,7 +10058,7 @@
 
     return PageElement;
   }(HyperHTMLElement);
-  PageElement.define("bt-page");
+  PageElement.define("base-page");
 
   var PageWrapperElement = function (_HyperHTMLElement) {
     inheritsLoose(PageWrapperElement, _HyperHTMLElement);
@@ -10077,7 +10077,7 @@
 
     return PageWrapperElement;
   }(HyperHTMLElement);
-  PageWrapperElement.define("bt-page-wrapper");
+  PageWrapperElement.define("base-page-wrapper");
 
   (function () {
     var _wp$editor = wp.editor,
@@ -10192,11 +10192,11 @@
     var render = function render(props, innerBlocks) {
       var sectionStyle = {};
       if (!props.attributes.backgroundIsElement && props.attributes.backgroundUrl) sectionStyle.backgroundImage = "url('" + props.attributes.backgroundUrl + "')";
-      var classArray = ['bt-section'];
-      if (props.attributes.backgroundIsElement) classArray.push("bt-section-has-background-element");
+      var classArray = ['base-section'];
+      if (props.attributes.backgroundIsElement) classArray.push("base-section-has-background-element");
       if (props.attributes.additionalClasses) classArray = classArray.concat(props.attributes.additionalClasses.split(" "));
       var className = classArray.join(" ");
-      var backgroundElementClasses = ['bt-section-background'];
+      var backgroundElementClasses = ['base-section-background'];
       if (props.attributes.backgroundElementClasses) backgroundElementClasses = backgroundElementClasses.concat(props.attributes.backgroundElementClasses.split(" "));
       var backgroundClassName = backgroundElementClasses.join(" ");
       return wp.element.createElement("div", {
@@ -10205,12 +10205,12 @@
       }, props.attributes.backgroundIsElement ? wp.element.createElement("div", {
         className: backgroundClassName
       }, props.attributes.backgroundIsVideo ? null : wp.element.createElement("div", {
-        className: "bt-background-image",
+        className: "base-background-image",
         style: {
           backgroundImage: "url('" + props.attributes.backgroundUrl + "')"
         }
       })) : null, wp.element.createElement("div", {
-        className: "bt-section-container"
+        className: "base-section-container"
       }, innerBlocks()));
     };
 
@@ -10291,11 +10291,11 @@
 
           var sectionStyle = {};
           if (!props.attributes.backgroundIsElement && props.attributes.backgroundUrl) sectionStyle.backgroundImage = "url('" + props.attributes.backgroundUrl + "')";
-          var classArray = ['bt-section'];
-          if (props.attributes.backgroundIsElement) classArray.push("bt-section-has-background-element");
+          var classArray = ['base-section'];
+          if (props.attributes.backgroundIsElement) classArray.push("base-section-has-background-element");
           if (props.attributes.additionalClasses) classArray = classArray.concat(props.attributes.additionalClasses.split(" "));
           var className = classArray.join(" ");
-          var backgroundElementClasses = ['bt-section-background'];
+          var backgroundElementClasses = ['base-section-background'];
           if (props.attributes.backgroundElementClasses) backgroundElementClasses = backgroundElementClasses.concat(props.attributes.backgroundElementClasses.split(" "));
           var backgroundClassName = backgroundElementClasses.join(" ");
           return wp.element.createElement("div", {
@@ -10304,13 +10304,13 @@
           }, props.attributes.backgroundIsElement ? wp.element.createElement("div", {
             className: backgroundClassName
           }, props.attributes.backgroundIsVideo ? null : wp.element.createElement("div", {
-            className: "bt-background-image-wrapper"
+            className: "base-background-image-wrapper"
           }, wp.element.createElement("img", {
             src: props.attributes.backgroundUrl,
             alt: "Background image",
             "aria-hidden": "true"
           }))) : null, wp.element.createElement("div", {
-            className: "bt-section-container"
+            className: "base-section-container"
           }, innerBlocks()));
         }
       }]
@@ -10349,7 +10349,7 @@
         };
       },
       edit: function edit(props, state) {
-        var classArray = ['bt-group'];
+        var classArray = ['base-group'];
         if (props.attributes.additionalClasses) classArray = classArray.concat(props.attributes.additionalClasses.split(" "));
         var className = classArray.join(" ");
         return wp.element.createElement(Fragment, null, wp.element.createElement("div", {

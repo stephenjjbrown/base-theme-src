@@ -9,7 +9,7 @@ export class PageElement extends HyperHTMLElement {
 
     created() {
         const updateRevealNavigationCss = value => {  
-            value ? this.classList.add("bt-page-reveal-navigation") : this.classList.remove("bt-page-reveal-navigation");
+            value ? this.classList.add("base-page-reveal-navigation") : this.classList.remove("base-page-reveal-navigation");
         }
         page.revealNavigation.subscribe(updateRevealNavigationCss)
         updateRevealNavigationCss(page.revealNavigation.value);
@@ -21,17 +21,17 @@ export class PageElement extends HyperHTMLElement {
     // renderedHtml = new TrackableComputedSubject(() => {
     //     console.log("renderhtmlcalled")
     //     return this.html`
-    //         <a class="bt-top-navigation-logo" href="${_wpSiteInfo.homeUrl}">
+    //         <a class="base-top-navigation-logo" href="${_wpSiteInfo.homeUrl}">
     //             ${ _wpSiteInfo.customLogo ? {html: _wpSiteInfo.customLogo.imageHtml} : _wpSiteInfo.siteDisplayName }
     //         </a>
 
-    //         <div class="bt-top-navigation-toggle">
+    //         <div class="base-top-navigation-toggle">
     //             ${ this.items.value
-    //                 .map(item => `<a class="bt-top-navigation-item" href="${ item.url }">${ item.title }</a>`)
+    //                 .map(item => `<a class="base-top-navigation-item" href="${ item.url }">${ item.title }</a>`)
     //             }
     //         </div>
 
-    //         <button class="bt-top-navigation-toggle" onclick=${ this.toggleButtonClicked }>Toggle</button>
+    //         <button class="base-top-navigation-toggle" onclick=${ this.toggleButtonClicked }>Toggle</button>
     //     `;
     // });
 
@@ -40,4 +40,4 @@ export class PageElement extends HyperHTMLElement {
     }
 }
 
-PageElement.define("bt-page");
+PageElement.define("base-page");

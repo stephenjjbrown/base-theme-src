@@ -12,7 +12,7 @@ import { page } from "./models/page";
 
 document.addEventListener("DOMContentLoaded", () => {
     // Initialize reveal elements
-    const revealElements = document.querySelectorAll('.bt-reveal');
+    const revealElements = document.querySelectorAll('.base-reveal');
 
     for (let i = 0; i < revealElements.length; i++) {
         const el = revealElements[i];
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    const fillHeightElements = document.querySelectorAll('.bt-fill-remaining-height');
+    const fillHeightElements = document.querySelectorAll('.base-fill-remaining-height');
 
     for (let i = 0; i < fillHeightElements.length; i++) {
         const el = fillHeightElements[i];
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    const backgroundCoverElements = document.querySelectorAll('.bt-background-cover');
+    const backgroundCoverElements = document.querySelectorAll('.base-background-cover');
 
     for (let i = 0; i < backgroundCoverElements.length; i++) {
         const el = backgroundCoverElements[i];
@@ -45,15 +45,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         // Initialize reveal elements
-        const parallaxElements = document.querySelectorAll('.bt-parallax');
+        const parallaxElements = document.querySelectorAll('.base-parallax');
 
         for (let i = 0; i < parallaxElements.length; i++) {
             const el = parallaxElements[i];
 
             const classArray = (el.className || "").split(" ");
             classArray.forEach(cssClass => {
-                if (cssClass.match(/bt-parallax-/)) {
-                    const matches = /bt-parallax-([^-]*?)-([-0-9]*)/.exec(cssClass);
+                if (cssClass.match(/base-parallax-/)) {
+                    const matches = /base-parallax-([^-]*?)-([-0-9]*)/.exec(cssClass);
 
                     const origin = matches[1] as "top" | "center" | "bottom";
                     const value = parseInt(matches[2]) / 100;
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     const updateDisableScrollCss = value => {
-        value ? document.body.classList.add("bt-disable-scroll") : document.body.classList.remove("bt-disable-scroll");
+        value ? document.body.classList.add("base-disable-scroll") : document.body.classList.remove("base-disable-scroll");
     }
 
     page.disableScroll.subscribe(updateDisableScrollCss)

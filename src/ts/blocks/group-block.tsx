@@ -29,7 +29,7 @@
         },
 
         edit: function(props, state) {
-            let classArray = ['bt-group'];
+            let classArray = ['base-group'];
             if (props.attributes.additionalClasses)
                 classArray = classArray.concat(props.attributes.additionalClasses.split(" "));
             const className = classArray.join(" ");

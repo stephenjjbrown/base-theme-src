@@ -31,23 +31,23 @@ export class TopNavigationElement extends HyperHTMLElement {
         this.renderedHtml = new TrackedComputedSubject(() => {
             //console.log(this, this.items, this.items.value, "renderhtmlcalled")
             const result = this.html`
-                <a class="bt-top-navigation-logo" href="${_wpSiteInfo.homeUrl}">
+                <a class="base-top-navigation-logo" href="${_wpSiteInfo.homeUrl}">
                     ${ _wpSiteInfo.customLogo ? {html: filterImageHtml(_wpSiteInfo.customLogo.imageHtml)} : _wpSiteInfo.siteDisplayName }
                 </a>
     
             
     
                 ${ this.items.value.length > 0 ?
-                    TopNavigationElement.wire()`<nav class="bt-top-navigation-links">
+                    TopNavigationElement.wire()`<nav class="base-top-navigation-links">
                         ${ this.items.value
-                            .map(item => `<a class="bt-top-navigation-link" href="${ item.url }">${ item.title }</a>`)
+                            .map(item => `<a class="base-top-navigation-link" href="${ item.url }">${ item.title }</a>`)
                         }
                     </nav>` :
                     null
                 }
                 
     
-                <button class="bt-top-navigation-toggle" onclick=${ this.toggleButtonClicked }><span class="bt-top-navigation-toggle-text">Toggle</span></button>
+                <button class="base-top-navigation-toggle" onclick=${ this.toggleButtonClicked }><span class="base-top-navigation-toggle-text">Toggle</span></button>
             `;
 
             if (!page.topNavigationRendered && this.items.value.length > 0) {
@@ -76,8 +76,8 @@ export class TopNavigationElement extends HyperHTMLElement {
             while(node) {
                 console.log(node);
                 if (node["className"] &&
-                    (node["className"].match(/bt-top-navigation-link([^s]|$)/) != null ||
-                    node["className"].indexOf("bt-top-navigation-toggle") != -1)) {                    
+                    (node["className"].match(/base-top-navigation-link([^s]|$)/) != null ||
+                    node["className"].indexOf("base-top-navigation-toggle") != -1)) {                    
                     return;
                 }
                 node = node.parentNode;
@@ -99,4 +99,4 @@ export class TopNavigationElement extends HyperHTMLElement {
     }
 }
 
-TopNavigationElement.define("bt-top-navigation");
+TopNavigationElement.define("base-top-navigation");

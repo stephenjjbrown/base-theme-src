@@ -1,6 +1,6 @@
 {
   "name": "@pendulum/base-theme",
-  "version": "2.1.0-dev.0",
+  "version": "2.1.0-dev.2",
   "description": "Baseline WordPress theme for creating custom themes",
   "main": "./dist/js/main.js",
   "types": "./dist/js/main.d.ts",
@@ -13,7 +13,7 @@
   "devDependencies": {
     "@babel/core": ">=7.3.3",
     "@babel/preset-env": ">=7.3.1",
-    "@pendulum/gulp-tools": "^1.5.1",
+    "@pendulum/gulp-tools": "^1.6.0",
     "@types/lodash": ">=4.14.121",
     "gulp": "^4.0.0",
     "typescript": "^3.3.3333"
