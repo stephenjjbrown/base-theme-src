@@ -6,6 +6,7 @@
     "experimentalDecorators": true,
     "jsx": "react",
     "jsxFactory": "wp.element.createElement",
-    "declaration": true
+    "declaration": true,
+    "declarationDir": "dist"
   }
 }

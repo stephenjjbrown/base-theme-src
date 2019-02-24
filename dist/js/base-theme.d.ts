@@ -16,4 +16,5 @@ declare global {
     interface Window {
         baseTheme: typeof BaseTheme;
     }
+    const baseTheme: typeof BaseTheme;
 }

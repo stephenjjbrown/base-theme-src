@@ -125,7 +125,7 @@
 	  return store[key] || (store[key] = value !== undefined ? value : {});
 	})('versions', []).push({
 	  version: _core.version,
-	  mode: 'global',
+	  mode: _library ? 'pure' : 'global',
 	  copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
 	});
 	});
@@ -3592,9 +3592,9 @@
 	    return capability.promise;
 	  }
 	});
-	_export(_export.S + _export.F * (_library || !USE_NATIVE$1), PROMISE, {
+	_export(_export.S + _export.F * (!USE_NATIVE$1), PROMISE, {
 	  resolve: function resolve(x) {
-	    return _promiseResolve(_library && this === Wrapper ? $Promise : this, x);
+	    return _promiseResolve(this, x);
 	  }
 	});
 	_export(_export.S + _export.F * !(USE_NATIVE$1 && _iterDetect(function (iter) {

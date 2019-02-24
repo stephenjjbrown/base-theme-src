@@ -10285,6 +10285,60 @@
           className: false
         },
         save: function save(props) {
+          var render = function render(props, innerBlocks) {
+            var sectionStyle = {};
+            if (!props.attributes.backgroundIsElement && props.attributes.backgroundUrl) sectionStyle.backgroundImage = "url('" + props.attributes.backgroundUrl + "')";
+            var classArray = ['bt-section'];
+            if (props.attributes.backgroundIsElement) classArray.push("bt-section-has-background-element");
+            if (props.attributes.additionalClasses) classArray = classArray.concat(props.attributes.additionalClasses.split(" "));
+            var className = classArray.join(" ");
+            var backgroundElementClasses = ['bt-section-background'];
+            if (props.attributes.backgroundElementClasses) backgroundElementClasses = backgroundElementClasses.concat(props.attributes.backgroundElementClasses.split(" "));
+            var backgroundClassName = backgroundElementClasses.join(" ");
+            return wp.element.createElement("div", {
+              className: className,
+              style: sectionStyle
+            }, props.attributes.backgroundIsElement ? wp.element.createElement("div", {
+              className: backgroundClassName
+            }, props.attributes.backgroundIsVideo ? null : wp.element.createElement("div", {
+              className: "bt-background-image",
+              style: {
+                backgroundImage: "url('" + props.attributes.backgroundUrl + "')"
+              }
+            })) : null, wp.element.createElement("div", {
+              className: "bt-section-container"
+            }, innerBlocks()));
+          };
+
+          return render(props, function () {
+            return wp.element.createElement(InnerBlocks.Content, null);
+          });
+        }
+      }, {
+        attributes: {
+          backgroundIsElement: {
+            type: 'boolean',
+            defaultValue: false
+          },
+          backgroundElementClasses: {
+            type: 'string'
+          },
+          backgroundIsVideo: {
+            type: 'boolean',
+            defaultValue: false
+          },
+          backgroundUrl: {
+            type: 'string'
+          },
+          additionalClasses: {
+            type: 'string'
+          }
+        },
+        supports: {
+          customClassName: false,
+          className: false
+        },
+        save: function save(props) {
           var innerBlocks = function innerBlocks() {
             return wp.element.createElement(InnerBlocks.Content, null);
           };

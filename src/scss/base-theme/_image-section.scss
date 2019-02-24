@@ -1,8 +1,8 @@
 .base-image-section {
-    @include display-flex();
+    display: flex;
 
     .base-image-section-column {
-        @include flex(0, 0, 50%);
+        flex: 0 0 50%;
 
         & > img {
             width: 100%;

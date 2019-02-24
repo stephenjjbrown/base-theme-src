@@ -1,6 +1,6 @@
 {
   "name": "@pendulum/base-theme",
-  "version": "2.1.0-dev.2",
+  "version": "2.1.0",
   "description": "Baseline WordPress theme for creating custom themes",
   "main": "./dist/js/main.js",
   "types": "./dist/js/main.d.ts",
@@ -16,17 +16,19 @@
     "@pendulum/gulp-tools": "^1.6.0",
     "@types/lodash": ">=4.14.121",
     "gulp": "^4.0.0",
-    "typescript": "^3.3.3333"
+    "typescript": "^3.4.0-dev.20190223"
   },
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/polyfill": "^7.2.5",
     "@babel/runtime": "^7.3.1",
+    "@webcomponents/webcomponentsjs": "^2.2.7",
     "dependency-tracked-subject": "^1.4.0",
     "document-register-element": "^1.13.1",
     "dom-loop": "^1.0.1",
     "hyperhtml": "^2.25.4",
     "hyperhtml-element": "^3.6.0",
+    "lit-element": "^2.0.1",
     "lodash": "^4.17.11",
     "rxjs": "^6.4.0"
   }
