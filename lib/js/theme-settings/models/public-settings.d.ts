@@ -6,4 +6,5 @@ export declare type ShowPageHeadingsMode = keyof typeof showPageHeadingsMap;
 export interface PublicSettings {
     footerPageId: number;
     showPageHeadings?: ShowPageHeadingsMode;
+    customHeadHtml?: string;
 }

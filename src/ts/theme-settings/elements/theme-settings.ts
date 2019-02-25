@@ -1,11 +1,16 @@
 import {LitElement, html, css, customElement, property} from 'lit-element';
 import { PublicSettingsClient } from '../clients/public-settings-client';
 import { PublicSettings, showPageHeadingsMap } from '../models/public-settings';
+import "./monaco-editor";
 
 
 @customElement('base-theme-settings')
 export class ThemeSettingsElement extends LitElement {
     private publicSettingsClient;
+
+    createRenderRoot() {
+        return this;
+    }
 
     @property()
     loading = true;
@@ -86,6 +91,8 @@ export class ThemeSettingsElement extends LitElement {
                                 @input=${ e => this.setPublicSetting({footerPageId: e.target.value}) }>
                             <p class="form-text text-muted ts-input-small">Set this to the ID of a (private) post or page to be included as footer. This enables you to use the entire page builder (Gutenberg or otherwise) to compose site footer, rather than being confined to only classic-style widgets.</p>
                         </div>
+
+                        <monaco-editor>
                         
                         <hr>
 

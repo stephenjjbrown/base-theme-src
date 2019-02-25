@@ -1,7 +1,9 @@
 import { LitElement } from 'lit-element';
 import { PublicSettings } from '../models/public-settings';
+import "./monaco-editor";
 export declare class ThemeSettingsElement extends LitElement {
     private publicSettingsClient;
+    createRenderRoot(): this;
     loading: boolean;
     saving: boolean;
     private publicSettings;
