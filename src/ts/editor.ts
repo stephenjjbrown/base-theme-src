@@ -1,5 +1,5 @@
 // Register components
-import "./components/components";
+// import "./components/components";
 import "./elements/elements";
 
 // Register blocks with WordPress

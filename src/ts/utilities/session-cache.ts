@@ -1,5 +1,5 @@
 class SessionCache {
-    get(key: string): string {
+    get(key: string): string | null {
         return sessionStorage.getItem(key);
     }
 

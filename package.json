@@ -1,9 +1,9 @@
 {
   "name": "@pendulum/base-theme",
-  "version": "2.2.0",
+  "version": "2.4.1",
   "description": "Baseline WordPress theme for creating custom themes",
-  "main": "./dist/js/main.js",
-  "types": "./dist/js/main.d.ts",
+  "main": "./lib/js/main.js",
+  "types": "./lib/js/main.d.ts",
   "scripts": {
     "build": "./node_modules/.bin/gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,17 +11,17 @@
   "author": "Stephen Brown",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": ">=7.3.3",
-    "@babel/preset-env": ">=7.3.1",
-    "@pendulum/gulp-tools": "^1.6.0",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@pendulum/gulp-tools": "^1.8.2",
     "@types/lodash": ">=4.14.121",
     "gulp": "^4.0.0",
     "typescript": "^3.4.0-dev.20190223"
   },
   "dependencies": {
-    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.3.4",
     "@babel/polyfill": "^7.2.5",
-    "@babel/runtime": "^7.3.1",
+    "@babel/runtime": "^7.3.4",
     "@webcomponents/webcomponentsjs": "^2.2.7",
     "dependency-tracked-subject": "^1.4.0",
     "document-register-element": "^1.13.1",
@@ -31,6 +31,7 @@
     "lit-element": "^2.0.1",
     "lodash": "^4.17.11",
     "monaco-editor": "^0.15.6",
-    "rxjs": "^6.4.0"
+    "rxjs": "^6.4.0",
+    "whatwg-fetch": "^3.0.0"
   }
 }

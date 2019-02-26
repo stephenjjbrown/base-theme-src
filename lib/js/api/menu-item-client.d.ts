@@ -1,4 +1,5 @@
 export declare class MenuItem {
+    id: number;
     title: string;
     url: string;
 }

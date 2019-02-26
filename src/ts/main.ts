@@ -1,6 +1,5 @@
-import "@babel/polyfill";
 import "./polyfills";
-import "./components/components";
+//import "./components/components";
 import "./elements/elements";
 import "./base-theme";
 
@@ -54,6 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
             classArray.forEach(cssClass => {
                 if (cssClass.match(/base-parallax-/)) {
                     const matches = /base-parallax-([^-]*?)-([-0-9]*)/.exec(cssClass);
+
+                    if (!matches) return; // Not formatted correctly
 
                     const origin = matches[1] as "top" | "center" | "bottom";
                     const value = parseInt(matches[2]) / 100;

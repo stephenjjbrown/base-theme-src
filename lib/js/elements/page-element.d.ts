@@ -1,5 +1,5 @@
-import HyperHTMLElement from "hyperhtml-element/esm";
-export declare class PageElement extends HyperHTMLElement {
-    created(): void;
-    render(): NodeListOf<ChildNode>;
+import { LitElement } from "lit-element";
+export declare class PageElement extends LitElement {
+    createRenderRoot(): this;
+    firstUpdated(): void;
 }

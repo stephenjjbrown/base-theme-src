@@ -19,7 +19,7 @@ export class PublicSettingsClient {
         return fetch(this.apiUrl, {
             method: "POST",
             body: JSON.stringify(data),
-            credentials: 'include',
+            //credentials: 'include', // Not need evidently
             headers: new Headers({
                 "Content-Type": "application/json",
                 'X-WP-Nonce': wpApiSettings.nonce

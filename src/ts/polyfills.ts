@@ -1,1 +1,3 @@
-import "./polyfills/custom-elements";
+import "@babel/polyfill";
+import "whatwg-fetch";
+import "@webcomponents/webcomponentsjs";

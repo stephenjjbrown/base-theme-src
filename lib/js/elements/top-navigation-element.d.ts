@@ -1,12 +1,10 @@
-import HyperHTMLElement from "hyperhtml-element/esm";
+import { LitElement } from "lit-element";
 import { MenuItem } from "../api/menu-item-client";
-import { TrackedArray } from "dependency-tracked-subject";
-import { TrackedComputedSubject } from "dependency-tracked-subject";
-import { WiredTemplateFunction } from "hyperhtml";
-export declare class TopNavigationElement extends HyperHTMLElement {
-    items: TrackedArray<MenuItem>;
-    renderedHtml: TrackedComputedSubject<WiredTemplateFunction>;
-    created(): void;
+export declare class TopNavigationElement extends LitElement {
+    createRenderRoot(): this;
+    items?: MenuItem[];
+    firstUpdated(): void;
+    updated(): void;
+    render(): import("lit-element").TemplateResult;
     toggleButtonClicked: () => void;
-    render(): (template: TemplateStringsArray, ...values: any[]) => any;
 }

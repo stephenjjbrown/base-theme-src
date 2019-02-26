@@ -8,9 +8,8 @@ import "./monaco-editor";
 export class ThemeSettingsElement extends LitElement {
     private publicSettingsClient;
 
-    createRenderRoot() {
-        return this;
-    }
+    // Must disable shadow DOM to allow Monaco editor to work
+    createRenderRoot() { return this; }
 
     @property()
     loading = true;
@@ -92,7 +91,15 @@ export class ThemeSettingsElement extends LitElement {
                             <p class="form-text text-muted ts-input-small">Set this to the ID of a (private) post or page to be included as footer. This enables you to use the entire page builder (Gutenberg or otherwise) to compose site footer, rather than being confined to only classic-style widgets.</p>
                         </div>
 
-                        <monaco-editor>
+                        <hr>
+                        
+                        <h2>Advanced</h2>
+
+                        <p>Custom &lt;head&gt; HTML</p>
+                        <monaco-editor
+                            value=${ this.publicSettings.customHeadHtml || "" }
+                            @change=${ e => this.setPublicSetting({customHeadHtml: e.target.value}) }>
+                        </monaco-editor>
                         
                         <hr>
 
@@ -109,6 +116,14 @@ export class ThemeSettingsElement extends LitElement {
                 }
             </div>
             <style>
+                /* WordPress Admin reset */
+                p {
+                    font-size: initial;
+                }
+
+                .wp-admin select {
+                    height: 32px;
+                }
                 .ts-input-small {
                     max-width: 400px;
                 }

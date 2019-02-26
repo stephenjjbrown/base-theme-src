@@ -1,7 +1,9 @@
 import { LitElement } from 'lit-element';
 export declare class MonacoEditorElement extends LitElement {
-    uniqueId: string;
     createRenderRoot(): this;
+    private uniqueId;
+    value: string;
+    private editor;
+    private model;
     firstUpdated(): void;
-    render(): import("lit-element").TemplateResult;
 }
